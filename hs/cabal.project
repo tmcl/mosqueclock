@@ -1,0 +1,5 @@
+packages: 
+	lib/athan-calculator
+	lib/athan-calculator-comparison-tests
+
+tests: True

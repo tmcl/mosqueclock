@@ -1,0 +1,14 @@
+This is fdlibm (Sun's Freely Distributed libm) with the relevant 
+functions rename to sin2 cos2 etc. 
+
+Why? Because I want the Java and Haskell sin, cos etc to match up.
+GNU libm and FD libm have different results (e.g. if sine is GNU
+sin and sine2 is fdlibm sin: 
+
+	the sine of 2.680464560029405 is 0.4449586553202932
+	the sine2 of 2.680464560029405 is 0.4449586553202933
+	the sine of 40057197673b4e7c is 3fdc7a33de2b0f16
+	the sine2 of 40057197673b4e7c is 3fdc7a33de2b0f17
+
+In interpreting that, please take careful note of the hex, which is
+the in-memory representation of the decimal numbers show in ambiguous form)

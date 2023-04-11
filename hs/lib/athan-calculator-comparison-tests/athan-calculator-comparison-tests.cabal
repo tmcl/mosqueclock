@@ -1,0 +1,33 @@
+cabal-version:      >=1.10
+name:               athan-calculator-comparison-tests
+version:            0.1.0.0
+license:            BSD3
+license-file:       LICENSE
+maintainer:         tristan@cassowary.org
+author:             Tristan Mc Leay
+synopsis:           athan time calculations
+category:           Real World
+build-type:         Simple
+extra-source-files: ChangeLog.md
+
+executable run-kotlin-tests
+    main-is:          Main.hs
+    hs-source-dirs:   test/kotlin test
+    other-modules:    DateTestUtils
+    default-language: Haskell2010
+    ghc-options:      -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+    build-depends:
+        base,
+        athan-calculator,
+        hedgehog,
+        typed-process,
+        stm,
+        time,
+        timezone-series,
+        binary,
+        with-utf8,
+        bytestring,
+        utf8-string
+
+    if !arch(x86_64)
+        buildable: False
